@@ -52,10 +52,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getData(int id){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery("select * from words where id=" + id + "", null);
-        /*Cursor count = db.rawQuery("select estonian, french, count(*) from words group by estonian, french)", null);
-        Random rand = new Random();
-        int  n = rand.nextInt(Cursor.FIELD_TYPE_INTEGER) + 1;*/
-        //Cursor res =  db.rawQuery( "select * from words by random() limit 1", null );
+        return res;
+    }
+
+    public Cursor getRandom(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from words order by random() limit 1", null );
         return res;
     }
 

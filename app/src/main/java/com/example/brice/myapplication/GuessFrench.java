@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.Random;
-
 /**
  * Created by Brice on 10/04/2016.
  */
@@ -26,12 +24,9 @@ public class GuessFrench extends Activity {
         estonian = (TextView) findViewById(R.id.editTextEstonian);
         french = (TextView) findViewById(R.id.editTextFrench);
 
-
         mydb = new DBHelper(this);
-        Random random = new Random();
 
-        Cursor rs = mydb.getData(random.nextInt(mydb.numberOfRows()));
-
+        Cursor rs = mydb.getRandom();
         rs.moveToFirst();
 
         String esto = rs.getString(rs.getColumnIndex(DBHelper.WORDS_COLUMN_ESTONIAN));

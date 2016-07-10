@@ -78,11 +78,9 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity(intent);
                 return true;
-            case R.id.item2:Bundle dataBundle2 = new Bundle();
-                dataBundle2.putInt("id", 0);
+            case R.id.item2:
 
                 Intent intent2 = new Intent(getApplicationContext(),GuessFrench.class);
-                intent2.putExtras(dataBundle2);
 
                 startActivity(intent2);
                 return true;
